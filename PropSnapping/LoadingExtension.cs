@@ -1,4 +1,5 @@
 ﻿using ICities;
+using PropSnapping.Detour;
 using PropSnapping.Redirection;
 
 namespace PropSnapping
@@ -8,20 +9,12 @@ namespace PropSnapping
         public override void OnCreated(ILoading loading)
         {
             base.OnCreated(loading);
+            if (loading.currentMode != AppMode.Game)
+            {
+                return;
+            }
+            Redirector<PropToolDetour>.Deploy();
             Redirector<PropInstanceDetour>.Deploy();
-        }
-
-        public override void OnLevelLoaded(LoadMode mode)
-        {
-            base.OnLevelLoaded(mode);
-            if (mode == LoadMode.LoadGame || mode == LoadMode.NewGame)
-            {
-                Redirector<PropToolDetour>.Deploy();
-            }
-            else
-            {
-                Redirector<PropInstanceDetour>.Revert();
-            }
         }
 
         public override void OnReleased()

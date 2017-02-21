@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
+﻿using System.Reflection;
 using ColossalFramework;
 using ColossalFramework.Math;
 using PropSnapping.Redirection;
 using UnityEngine;
 
-namespace PropSnapping
+namespace PropSnapping.Detour
 {
     [TargetType(typeof(PropTool))]
     public class PropToolDetour : PropTool
@@ -62,24 +57,18 @@ namespace PropSnapping
                 if (this.m_propInfo == null || this.m_wasPrefab != this.m_prefab)
                 {
                     this.m_wasPrefab = this.m_prefab;
-                    //begin mod
-                    Randomizer randomizer = m_randomizer;
-                    //end mod
-                    this.m_propInfo = /**/ this.m_prefab.GetVariation(ref randomizer) /**/;
-                    //begin mod
+                    Randomizer r = this.m_randomizer;
+                    this.m_propInfo = (Singleton<ToolManager>.instance.m_properties.m_mode & ItemClass.Availability.AssetEditor) == ItemClass.Availability.None ? this.m_prefab.GetVariation(ref r) : this.m_prefab;
                     m_randomizer = this.m_randomizer;
-                    //end mod
                 }
                 ToolBase.RaycastInput input = new ToolBase.RaycastInput(this.m_mouseRay, this.m_mouseRayLength);
                 //begin mod
-                //end mod
                 input.m_ignoreBuildingFlags = Building.Flags.None;
                 input.m_ignoreNodeFlags = NetNode.Flags.None;
                 input.m_ignoreSegmentFlags = NetSegment.Flags.None;
                 input.m_buildingService = new RaycastService(ItemClass.Service.None, ItemClass.SubService.None, ItemClass.Layer.Default);
                 input.m_netService = new RaycastService(ItemClass.Service.None, ItemClass.SubService.None, ItemClass.Layer.Default);
                 input.m_netService2 = new RaycastService(ItemClass.Service.None, ItemClass.SubService.None, ItemClass.Layer.Default);
-                //begin mod
                 //end mod
                 ulong[] collidingSegments;
                 ulong[] collidingBuildings;

@@ -1,8 +1,9 @@
 ﻿using ColossalFramework;
+using PropSnapping.OptionsFramework;
 using PropSnapping.Redirection;
 using UnityEngine;
 
-namespace PropSnapping
+namespace PropSnapping.Detour
 {
     [TargetType(typeof(PropInstance))]
     public struct PropInstanceDetour
@@ -26,7 +27,14 @@ namespace PropSnapping
                 return;
             bool blocked1 = prop.Blocked;
             //begin mod
-            prop.m_posY = prop.m_posY > num ? prop.m_posY : num;
+            if (ToolsModifierControl.GetCurrentTool<TerrainTool>() == null || OptionsWrapper<Options>.Options.dontUpdateYOnTerrainModification)
+            {
+                prop.m_posY = prop.m_posY > num ? prop.m_posY : num;
+            }
+            else
+            {
+                prop.m_posY = num;
+            }
             //end mod
             bool blocked2 = prop.Blocked;
             if (blocked2 != blocked1)
