@@ -1,0 +1,4 @@
+[submodule "PropSnapping/OptionsFramework"]
+	path = PropSnapping/OptionsFramework
+	url = git@github.com:earalov/OptionsFramework.git
+	branch = customization/Skylines-PropSnapping
