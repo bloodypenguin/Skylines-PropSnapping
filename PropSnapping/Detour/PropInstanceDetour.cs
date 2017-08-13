@@ -29,7 +29,7 @@ namespace PropSnapping.Detour
             //begin mod
             if (ToolsModifierControl.GetCurrentTool<TerrainTool>() == null || OptionsWrapper<Options>.Options.dontUpdateYOnTerrainModification)
             {
-                prop.m_posY = prop.m_posY > num ? prop.m_posY : num;
+                prop.m_posY = (OptionsWrapper<Options>.Options.allowToSubmerge || prop.m_posY > num) ? prop.m_posY : num;
             }
             else
             {

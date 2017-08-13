@@ -5,14 +5,10 @@ namespace PropSnapping
     [Options("PropSnapping")]
     public class Options
     {
-        public Options()
-        {
-            dontUpdateYOnTerrainModification = true;
-        }
+        [Checkbox("Don't update prop Y coordinate on terrain modification")]
+        public bool dontUpdateYOnTerrainModification { set; get; } = true;
 
-
-        [Checkbox("Don't update tree Y coordinate on terrain modification")]
-        public bool dontUpdateYOnTerrainModification { set; get; }
-
+        [Checkbox("Allow prop to submerge")]
+        public bool allowToSubmerge { set; get; } = false;
     }
 }
