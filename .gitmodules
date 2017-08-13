@@ -2,3 +2,7 @@
 	path = PropSnapping/OptionsFramework
 	url = git@github.com:earalov/OptionsFramework.git
 	branch = customization/Skylines-PropSnapping
+[submodule "PropSnapping/RedirectionFramework"]
+	path = PropSnapping/RedirectionFramework
+	url = git@github.com:earalov/RedirectionFramework.git
+	branch = customization/Skylines-PropSnapping
