@@ -36,8 +36,12 @@
     <Compile Include="Mod.cs" />
     <Compile Include="Options.cs" />
     <Compile Include="OptionsFramework\Attibutes\AbstractOptionsAttribute.cs" />
+    <Compile Include="OptionsFramework\Attibutes\ButtonAttribute.cs" />
     <Compile Include="OptionsFramework\Attibutes\CheckboxAttribute.cs" />
+    <Compile Include="OptionsFramework\Attibutes\DontTranslateDescriptionAttribute.cs" />
     <Compile Include="OptionsFramework\Attibutes\DropDownAttribute.cs" />
+    <Compile Include="OptionsFramework\Attibutes\HideConditionAttribute.cs" />
+    <Compile Include="OptionsFramework\Attibutes\LabelAttribute.cs" />
     <Compile Include="OptionsFramework\Attibutes\OptionsAttribute.cs" />
     <Compile Include="OptionsFramework\Attibutes\SliderAttribute.cs" />
     <Compile Include="OptionsFramework\Attibutes\TextFieldAttribute.cs" />
@@ -48,6 +52,19 @@
     <Compile Include="Detour\PropInstanceDetour.cs" />
     <Compile Include="Detour\PropToolDetour.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RedirectionFramework\AssemblyRedirector.cs" />
+    <Compile Include="RedirectionFramework\Attributes\IgnoreConditionAttribute.cs" />
+    <Compile Include="RedirectionFramework\Attributes\IgnoreConditions\DisableAttribute.cs" />
+    <Compile Include="RedirectionFramework\Attributes\RedirectAttribute.cs" />
+    <Compile Include="RedirectionFramework\Attributes\RedirectMethodAttribute.cs" />
+    <Compile Include="RedirectionFramework\Attributes\RedirectReverseAttribute.cs" />
+    <Compile Include="RedirectionFramework\Attributes\TargetTypeAttribute.cs" />
+    <Compile Include="RedirectionFramework\Extensions\TypeExtension.cs" />
+    <Compile Include="RedirectionFramework\Properties\AssemblyInfo.cs" />
+    <Compile Include="RedirectionFramework\RedirectionHelper.cs" />
+    <Compile Include="RedirectionFramework\RedirectionUtil.cs" />
+    <Compile Include="RedirectionFramework\Redirector.cs" />
+    <Compile Include="RedirectionFramework\Tuple.cs" />
     <Compile Include="SerializableDataExtension.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -66,7 +83,16 @@
       <HintPath>C:\Games\Steam\steamapps\common\Cities_Skylines\Cities_Data\Managed\UnityEngine.dll</HintPath>
     </Reference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="RedirectionFramework\.git" />
+    <None Include="RedirectionFramework\.gitignore" />
+    <None Include="RedirectionFramework\LICENSE" />
+    <None Include="RedirectionFramework\README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="RedirectionFramework\RedirectionFramework.csproj" />
+    <Content Include="RedirectionFramework\RedirectionFramework.sln" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>mkdir "$(LOCALAPPDATA)\Colossal Order\Cities_Skylines\Addons\Mods\$(TargetName)"

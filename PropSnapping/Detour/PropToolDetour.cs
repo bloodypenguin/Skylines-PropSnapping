@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
 using ColossalFramework;
 using ColossalFramework.Math;
-using PropSnapping.Redirection;
+using PropSnapping.RedirectionFramework.Attributes;
 using UnityEngine;
 
 namespace PropSnapping.Detour

@@ -1,6 +1,6 @@
 ﻿using ColossalFramework;
 using PropSnapping.OptionsFramework;
-using PropSnapping.Redirection;
+using PropSnapping.RedirectionFramework.Attributes;
 using UnityEngine;
 
 namespace PropSnapping.Detour
